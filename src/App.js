@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Product from "./components/Product";
+import "./App.css";
 
 function App() {
+  const [movie, setMovie] = useState([]);
+  const [query, setQuery] = useState("harry")
+  const[loading,setLoading]=useState(false)
+  const[show,setShow]=useState(false)
+  const[whislist,setWhislist]=useState([])
+ 
+  useEffect(() => {
+    setLoading(true)
+    fetch(`https://www.omdbapi.com/?s=${query || 'harry'}&apikey=e26cef7e`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setMovie(data);
+        setLoading(false)
+
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+  }, [query]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Header
+    query={query} 
+    setQuery={setQuery} 
+    show={show}
+    setShow={setShow}
+    whislist={whislist}
+    setWhislist={setWhislist}/>
+      <Product
+       movie={movie}
+        loading={loading} 
+        setLoading={setLoading}
+         query={query}
+          setQuery={setQuery}
+          show={show}
+    setShow={setShow}
+  whislist={whislist}
+  setWhislist={setWhislist}
+  
+  />
+  
     </div>
   );
 }

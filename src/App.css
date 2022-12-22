@@ -1,38 +1,214 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body{
+  background-color:rgb(21, 23, 26);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+/* ____________________Loading_____________________________ */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
 }
 
-@keyframes App-logo-spin {
-  from {
+.box {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, #0005);
+}
+
+.box .loader {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: animateLoading 2s linear infinite;
+}
+
+.box .loader:nth-child(2),
+.box .loader:nth-child(4) {
+  animation-delay: -1s;
+  filter: hue-rotate(290deg);
+}
+
+@keyframes animateLoading {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
+
+.box .loader:nth-child(1)::before,
+.box .loader:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to top, transparent, rgba(0, 255, 249, 0.5));
+  background-size: 100px 180px;
+  background-repeat: no-repeat;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+
+.container .loader i {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: #00fff9;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00fff9,
+    0 0 20px #00fff9,
+    0 0 30px #00fff9,
+    0 0 40px #00fff9,
+    0 0 50px #00fff9,
+    0 0 60px #00fff9,
+    0 0 70px #00fff9,
+    0 0 80px #00fff9,
+    0 0 90px #00fff9,
+    0 0 100px #00fff9;
+  z-index: 10;
+}
+
+.box .loader span {
+  position: absolute;
+  inset: 20px;
+  background: #000;
+  border-radius: 50%;
+  z-index: 1;
+}
+/* _____________________________________ */
+header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+}
+header div{
+  width: 500px;
+  max-width: 100%;
+  padding: 10px 7px;
+  border-bottom: 1px solid white;
+}
+header div input{
+  padding: 17px 7px;
+  width: 70%;
+  background-color: transparent;
+  border: none;
+  color: white;
+
+}
+header div input:focus{
+  color: white;
+}
+header div button{
+  padding: 10px 30px;
+  cursor: pointer;
+}
+.icon_color{
+  border: none;
+  color: white;
+  background-color: transparent;
+  font-size: 15px;
+}
+/* _______________Product___________________________ */
+.product_div{
+  padding: 40px 40px;
+  display: flex;
+  justify-content: center;
+}
+.product_minidiv{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+
+
+ 
+}
+.product{
+  width: 24%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.product_img{
+  height: 300px;
+}
+.product_img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product_text{
+ height: 100px;
+ padding: 16px;
+  font-size: 15px;
+}
+.product_year{
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+.product_year i{
+  cursor: pointer;
+}
+/* ___________________________________________ */
+.section{
+  padding: 40px 0;
+  background: #fff;
+  color: black;
+  background-color: red;
+}
+
+section img {
+  width: 100%;
+}
+
+.bg-img {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+  background-repeat:no-repeat;
+}
+
+.bg-img h1 {
+  font-size: 80px;
+}
+
+.bg-img h3 {
+  font-size: 80px;
+}
+
+.link {
+  color: #fff;
+  padding: 10px 20px;
+  background: #EE9403;
+  margin: 20px 0;
+  display: inline-block;
+  text-decoration:none;
+}
+
+.link:hover{
+  color:#fff;
+  background-color:#E76B08;
+}
+
