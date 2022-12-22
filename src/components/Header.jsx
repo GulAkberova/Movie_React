@@ -12,7 +12,6 @@ function Header({query,setQuery,show,setShow, whislist, setWhislist}) {
     }
    const handleShow=()=>{
     setShow(!show)
-    console.log('shodfkdg',show)
 
    }
   return (

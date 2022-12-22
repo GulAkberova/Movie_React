@@ -57,26 +57,12 @@ function Product({movie,loading,setLoading,whislist,setWhislist,show,setShow}) {
                 
               </div>
               )
-            }): <div>
+            }): 
               <div className="section">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="col-sm-12 col-sm-offset-1 text-center">
-                    <div class="bg-img">
-                      <h1 class="text-center">404</h1>
-                    </div>
-                    <div class="content">
-                      <h3 class="h2">Page not found!</h3>
-                      <p>are you sure you want to be here?</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <h1>Empty...</h1>
           </div>
 
-            </div>   
+            
         }
        
       </div>
